@@ -1,0 +1,23 @@
+{
+    "name": "atrakeur/repository",
+    "description": "A implementation of the repository pattern for laravel that decouple Eloquent models using standart php objects",
+    "authors": [
+        {
+            "name": "Atrakeur",
+            "email": "atrakeur@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "illuminate/support": "4.2.*"
+    },
+    "autoload": {
+        "classmap": [
+            "src/"
+        ],
+        "psr-0": {
+            "Atrakeur\\Repository\\": "src/"
+        }
+    },
+    "minimum-stability": "stable"
+}
