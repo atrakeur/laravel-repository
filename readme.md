@@ -73,11 +73,15 @@ public function __construct(CategoryRepository $categories)
 ```
 
 And now, all you have to do is to rewrite all calls to your models to the Repository.
-For example `Categories::find(1)->with('articles');`
-becomes `$this->categories->byId(1)->with(array('articles'))->getOne();`
+For example the code: 
+```Categories::find(1)->with('articles');```
+becomes 
+```$this->categories->byId(1)->with(array('articles'))->getOne();```
 
 The key here is to place this code inside the CategoryRepository class.
-So in your controller your code is now `$this->categories->getCategorie(1);`
+So in your controller your code is now ```$this->categories->getCategorie(1);```
+
+Cleaner?
 
 ### Contributing
 
