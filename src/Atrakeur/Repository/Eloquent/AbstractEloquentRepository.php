@@ -3,7 +3,10 @@
 use \Atrakeur\Repository\Eloquent\EloquentConverter;
 use \Illuminate\Database\Eloquent\Model as Eloquent;
 
-abstract class AbstractEloquentRepository {
+use Atrakeur\Repository\Interfaces\BasicRepositoryInterface;
+use Atrakeur\Repository\Interfaces\RelationRepositoryInterface;
+
+abstract class AbstractEloquentRepository implements BasicRepositoryInterface, RelationRepositoryInterface {
 
 	protected $model;
 	protected $query;
@@ -15,7 +18,7 @@ abstract class AbstractEloquentRepository {
 		$this->resetScope();
 	}
 
-	public function boot()
+	protected function boot()
 	{
 	}
 

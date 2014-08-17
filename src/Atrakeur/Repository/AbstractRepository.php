@@ -1,5 +1,7 @@
 <?php namespace Atrakeur\Repository;
 
-abstract class AbstractRepository {
+use Atrakeur\Repository\Interfaces\BasicRepositoryInterface;
+
+abstract class AbstractRepository implements BasicRepositoryInterface {
 
 }
