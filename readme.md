@@ -32,6 +32,12 @@ Then add the following service provider to your app.php:
 'Atrakeur\Repository\RepositoryServiceProvider',
 ```
 
+And finally publish the package config:
+```
+php artisan config:publish atrakeur/repository
+```
+
+
 ### Create your first repository
 
 A basic repository definition look like that:
