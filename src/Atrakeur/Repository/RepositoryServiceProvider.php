@@ -28,7 +28,8 @@ class RepositoryServiceProvider extends ServiceProvider {
 	 */
 	public function register()
 	{
-		//
+		//TODO bind to the IOC?
+		
 	}
 
 	/**
