@@ -19,6 +19,11 @@ class RepositoryServiceProvider extends ServiceProvider {
 	public function boot()
 	{
 		$this->package('atrakeur/repository');
+
+		foreach(\Config::get('repository::converters') AS $key => $value)
+		{
+			$this->app->bind($key, $value);	
+		}
 	}
 
 	/**
@@ -29,7 +34,6 @@ class RepositoryServiceProvider extends ServiceProvider {
 	public function register()
 	{
 		//TODO bind to the IOC?
-		
 	}
 
 	/**

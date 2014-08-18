@@ -29,6 +29,7 @@ class EloquentToObjectConverter implements EloquentConverter {
 		}
 
 		$data->links = $models->links();
+
 		return $data;
 	}
 
