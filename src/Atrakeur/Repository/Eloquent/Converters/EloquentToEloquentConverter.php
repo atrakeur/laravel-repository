@@ -22,4 +22,9 @@ class EloquentToEloquentConverter implements EloquentConverter {
 		return $models;
 	}
 
+	public function import($object, $model)
+	{
+		return $object;
+	}
+
 }

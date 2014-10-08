@@ -7,4 +7,6 @@ interface EloquentConverter {
 
 	public function convert($models);
 
+	public function import($object, $model);
+
 }

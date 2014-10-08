@@ -70,4 +70,16 @@ class EloquentToObjectConverter implements EloquentConverter {
 		return $models;
 	}
 
+	public function import($object, $model)
+	{
+		$data = $model->newInstance();
+
+		foreach($object AS $key => $value)
+		{
+			$data->$key = $value;
+		}
+
+		return $data;
+	}
+
 }

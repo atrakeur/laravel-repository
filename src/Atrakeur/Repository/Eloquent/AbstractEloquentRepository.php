@@ -3,10 +3,12 @@
 use \Atrakeur\Repository\Eloquent\EloquentConverter;
 use \Illuminate\Database\Eloquent\Model as Eloquent;
 
-use Atrakeur\Repository\Interfaces\BasicRepositoryInterface;
-use Atrakeur\Repository\Interfaces\RelationRepositoryInterface;
+use \Atrakeur\Repository\Interfaces\BasicRepositoryInterface;
+use \Atrakeur\Repository\Interfaces\RelationRepositoryInterface;
+use \Atrakeur\Repository\Interfaces\SaveRepositoryInterface;
 
-abstract class AbstractEloquentRepository implements BasicRepositoryInterface, RelationRepositoryInterface {
+abstract class AbstractEloquentRepository 
+	implements BasicRepositoryInterface, RelationRepositoryInterface, SaveRepositoryInterface {
 
 	protected $model;
 	protected $query;
@@ -66,6 +68,17 @@ abstract class AbstractEloquentRepository implements BasicRepositoryInterface, R
 		$data = $this->query->get();
 		$this->resetScope();
 		return $this->converter->convert($data);
+	}
+
+	public function save($data, $model = null)
+	{
+		if ($model == null)
+		{
+			$model = $this->model;
+		}
+
+		$dataModel = $this->converter->import($data, $model);
+		$dataModel->save();	
 	}
 
 }
