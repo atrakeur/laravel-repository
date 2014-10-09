@@ -38,6 +38,12 @@ class EloquentToObjectConverter implements EloquentConverter {
 		$data = new stdClass();
 		foreach ($models->toArray() as $key => $value) 
 		{
+			$camelKey = camel_case($key);
+			if (isset($models->$camelKey)) 
+			{
+				$data->$camelKey = $this->convert($models->$camelKey);
+			}
+			
 			$data->$key = $this->convert($models->$key);
 		}
 		return $data;
