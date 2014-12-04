@@ -7,7 +7,6 @@
  */
 return array(
 
-
 	'Atrakeur\Repository\Eloquent\EloquentConverter' => 'Atrakeur\Repository\Eloquent\Converters\EloquentToObjectConverter'
 
 );

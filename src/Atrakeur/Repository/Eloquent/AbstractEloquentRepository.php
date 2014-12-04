@@ -37,9 +37,9 @@ abstract class AbstractEloquentRepository
 		return $this;
 	}
 
-	public function byField($field, $value)
+	public function byField($field, $value, $comparison = '=')
 	{
-		$this->query = $this->query->where($field, '=', $value);
+		$this->query = $this->query->where($field, $comparison, $value);
 		return $this;
 	}
 
