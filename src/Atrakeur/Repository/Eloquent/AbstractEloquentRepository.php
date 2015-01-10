@@ -6,9 +6,11 @@ use \Illuminate\Database\Eloquent\Model as Eloquent;
 use \Atrakeur\Repository\Interfaces\BasicRepositoryInterface;
 use \Atrakeur\Repository\Interfaces\RelationRepositoryInterface;
 use \Atrakeur\Repository\Interfaces\SaveRepositoryInterface;
+use \Atrakeur\Repository\Interfaces\OrderableRepositoryInterface;
 
 abstract class AbstractEloquentRepository 
-	implements BasicRepositoryInterface, RelationRepositoryInterface, SaveRepositoryInterface {
+	implements BasicRepositoryInterface, RelationRepositoryInterface, SaveRepositoryInterface,
+		OrderableRepositoryInterface {
 
 	protected $model;
 	protected $query;
@@ -46,6 +48,18 @@ abstract class AbstractEloquentRepository
 	public function byId($ident)
 	{
 		$this->query = $this->query->where('id', '=', $ident);
+		return $this;
+	}
+
+	public function orderByAsc($field)
+	{
+		$this->query = $this->query->orderBy($field, 'ASC');
+		return $this;
+	}
+
+	public function orderByDesc($field)
+	{
+		$this->query = $this->query->orderBy($field, 'DESC');
 		return $this;
 	}
 
