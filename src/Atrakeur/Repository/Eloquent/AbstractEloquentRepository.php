@@ -63,6 +63,20 @@ abstract class AbstractEloquentRepository
 		return $this;
 	}
 
+	public function byRandom($count = 1, $seed = NULL)
+	{
+		if ($seed == NULL)
+		{
+			$seed = time();
+		}
+		if (!is_numeric($seed))
+		{
+			throw new Exception("Random seed must be a number");
+		}
+		$this->query = $this->query->orderByRaw("RAND(".$seed.")")->take($count);
+		return $this;
+	}
+
 	public function paginate($itemCount)
 	{
 		$data = $this->query->paginate($itemCount);

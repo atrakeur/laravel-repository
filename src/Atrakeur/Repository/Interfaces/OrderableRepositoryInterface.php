@@ -21,4 +21,12 @@ interface OrderableRepositoryInterface {
 	 */
 	public function orderByDesc($field);
 
+	/**
+	 * Order results by random order
+	 * @param  integer $count the count to get
+	 * @param  integer  $seed  the seed to randomize
+	 * @return this         
+	 */
+	public function byRandom($count = 1, $seed = NULL);
+
 }
